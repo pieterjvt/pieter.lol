@@ -1,0 +1,6 @@
+.env
+node_modules/
+tool-cache/*
+!tool-cache/.gitkeep
+*.zip
+.DS_Store

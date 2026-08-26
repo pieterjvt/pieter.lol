@@ -1,0 +1,29 @@
+{
+    "name": "pieter.lol",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "start": "node src/server.mjs",
+        "dev": "node --watch src/server.mjs",
+        "test": "node --test",
+        "tools:sync": "node scripts/sync-tools.mjs",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write \"**/*.{js,mjs,json,css,md,yml,yaml}\"",
+        "format:check": "prettier --check \"**/*.{js,mjs,json,css,md,yml,yaml}\"",
+        "templates:check": "node scripts/check-templates.mjs",
+        "check": "npm run lint && npm run format:check && npm run templates:check && npm test"
+    },
+    "dependencies": {
+        "markdown-it": "^15.0.0",
+        "nunjucks": "3.2.4"
+    },
+    "devDependencies": {
+        "eslint": "10.9.0",
+        "prettier": "3.9.6"
+    },
+    "engines": {
+        "node": ">=22"
+    }
+}

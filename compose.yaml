@@ -1,0 +1,10 @@
+services:
+    website:
+        build: .
+        ports:
+            - '3000:3000'
+        environment:
+            UMAMI_SCRIPT_URL: ${UMAMI_SCRIPT_URL:-}
+            UMAMI_WEBSITE_ID: ${UMAMI_WEBSITE_ID:-}
+            GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+        restart: unless-stopped

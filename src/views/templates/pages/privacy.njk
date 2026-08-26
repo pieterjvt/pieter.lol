@@ -1,0 +1,23 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+    {% if privacy.updatedAt and privacy.updatedLabel %}
+        <div class="page-meta">
+            <span class="page-meta-label">Last updated: </span>
+            <time datetime="{{ privacy.updatedAt }}">
+                {{ privacy.updatedLabel }}
+            </time>
+        </div>
+    {% endif %}
+
+    {% for section in privacy.sections %}
+        <section class="policy" aria-labelledby="{{ section.id }}-heading">
+            <div class="section-wrapper">
+                <h2 id="{{ section.id }}-heading" class="section-tab">{{ section.title }}</h2>
+            </div>
+            <div class="content-card">
+                {{ section.html | safe }}
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}

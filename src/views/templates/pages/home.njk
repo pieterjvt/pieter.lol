@@ -1,0 +1,41 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+    <section aria-labelledby="tools-heading">
+        <div class="section-wrapper">
+            <h2 id="tools-heading" class="section-tab">useful tools</h2>
+            <a href="/tools">view all</a>
+        </div>
+        <div class="cards">
+            {% for tool in tools %}
+                {% include "components/tool-card.njk" %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section aria-labelledby="code-heading">
+        <div class="section-wrapper">
+            <h2 id="code-heading" class="section-tab">latest code</h2>
+        </div>
+        <div class="code-list">
+            {% if hasRepositories %}
+                {% for repository in repositories %}
+                    {% include "components/repository-item.njk" %}
+                {% endfor %}
+            {% else %}
+                <p class="empty-state">GitHub repository data is temporarily unavailable.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+        <div class="section-wrapper">
+            <h2 id="contact-heading" class="section-tab">contact me</h2>
+        </div>
+        <nav class="contact-row" aria-label="contact links">
+            <a href="{{ site.githubUrl }}">GitHub</a>
+            <a href="{{ site.linkedinUrl }}">LinkedIn</a>
+            <a href="mailto:{{ site.email }}">E-Mail</a>
+        </nav>
+    </section>
+{% endblock %}

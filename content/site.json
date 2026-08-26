@@ -1,0 +1,14 @@
+{
+    "siteName": "pieter.lol",
+    "siteUrl": "https://pieter.lol",
+    "description": "Some useful tools and code I'm working on.",
+    "ownerName": "Pieter van Tienhoven",
+    "email": "pieter@pieter.lol",
+    "githubUsername": "pieterjvt",
+    "githubUrl": "https://github.com/pieterjvt",
+    "linkedinUrl": "https://linkedin.com/in/pieterjvt",
+    "latestRepositoryCount": 4,
+    "homeToolCount": 4,
+    "githubCacheSeconds": 300,
+    "excludeRepositories": []
+}

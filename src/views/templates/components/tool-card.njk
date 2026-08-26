@@ -1,0 +1,15 @@
+<article class="card">
+    <div class="label">{{ tool.label }}</div>
+    <h3>{{ tool.title }}</h3>
+    <p>{{ tool.description }}</p>
+    <div class="footer">
+        {% if tool.updatedAt %}
+            <time class="timestamp" datetime="{{ tool.updatedAt }}">
+                Last updated: {{ tool.updatedLabel }}
+            </time>
+        {% else %}
+            <span></span>
+        {% endif %}
+        <a href="{{ tool.url }}">open</a>
+    </div>
+</article>

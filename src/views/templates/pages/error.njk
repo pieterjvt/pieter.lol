@@ -1,0 +1,13 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+    <section aria-labelledby="error-heading">
+        <div class="section-wrapper">
+            <h2 id="error-heading" class="section-tab">error {{ error.status }}</h2>
+        </div>
+        <div class="content-card">
+            <p>{{ error.description }}</p>
+            <p><a href="/">return home</a></p>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description }}">
+    <title>{{ page.documentTitle }}</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="stylesheet"
+        href="https://fonts.bunny.net/css?family=inter:400,500,600|courier-prime:400,700&display=swap">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/css/site.css">
+    {% if umami.scriptUrl and umami.websiteId %}
+        <script defer src="{{ umami.scriptUrl }}" data-website-id="{{ umami.websiteId }}"></script>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () =>
+            document.querySelectorAll("a").forEach((t) => {
+                if (t.host !== window.location.host && !t.getAttribute("data-umami-event")) {
+                    t.setAttribute("data-umami-event", "outbound-link-click");
+                    t.setAttribute("data-umami-event-url", t.href);
+                }
+            })
+        );
+        </script>
+    {% endif %}
+</head>
+<body>
+    <main class="wrapper">
+        <header class="site-header">
+            <div>
+                <div class="label breadcrumb">
+                    {% if page.path %}
+                        <span><a href="/">{{ site.siteUrl }}/</a>{{ page.path }}</span>
+                    {% else %}
+                        <a href="/">{{ site.siteUrl }}/</a>
+                    {% endif %}
+                </div>
+                <h1>{{ page.heading }}</h1>
+            </div>
+            <p>{{ page.headerText }}</p>
+        </header>
+
+        {% block content %}{% endblock %}
+
+        <footer>
+            <span>© {{ site.ownerName }}</span>
+            <a href="/privacy">privacy policy</a>
+        </footer>
+    </main>
+</body>
+</html>

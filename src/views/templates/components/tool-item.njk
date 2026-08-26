@@ -1,0 +1,13 @@
+<article class="tool-item">
+    <div class="tool-info">
+        <div class="label">{{ tool.label }}</div>
+        <h3>{{ tool.title }}</h3>
+        <p>{{ tool.description }}</p>
+        {% if tool.updatedAt %}
+            <time class="timestamp" datetime="{{ tool.updatedAt }}">
+                Last updated: {{ tool.updatedLabel }}
+            </time>
+        {% endif %}
+    </div>
+    <a href="{{ tool.url }}">open</a>
+</article>

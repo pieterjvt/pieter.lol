@@ -1,0 +1,40 @@
+[
+    {
+        "kind": "github",
+        "slug": "spatial-unlocker",
+        "title": "Spatial Unlocker",
+        "description": "Unlocks Apple Spatial Scene for screenshots.",
+        "label": "html/css/js",
+        "repository": "pieterjvt/spatial-unlocker",
+        "ref": "main",
+        "sitePath": "."
+    },
+    {
+        "kind": "github",
+        "slug": "cijfer-overzicht",
+        "title": "Cijfer Overzicht",
+        "description": "Magister cijfer overzicht, bewerk je cijfers.",
+        "label": "html/css/js",
+        "repository": "pieterjvt/cijfer-overzicht",
+        "ref": "main",
+        "sitePath": "."
+    },
+    {
+        "kind": "link",
+        "slug": "rickroll",
+        "title": "Rickroll",
+        "description": "Auto-play Rick Astley.",
+        "label": "html/css/js",
+        "url": "https://r.pieter.lol",
+        "repository": "pieterjvt/rickroll"
+    },
+    {
+        "kind": "link",
+        "slug": "dashcast",
+        "title": "Dashcast",
+        "description": "Cast a website to a Google Chromecast.",
+        "label": "html/css/js",
+        "url": "https://dashcast.pieter.lol",
+        "repository": "pieterjvt/dashcast"
+    }
+]
