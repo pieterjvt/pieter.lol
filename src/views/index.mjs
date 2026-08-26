@@ -42,6 +42,10 @@ export function renderHome({ site, umami, tools, repositories }) {
     const presentedRepositories = [];
 
     for (const repository of repositories) {
+        if (repository.fork || repository.archived) {
+            continue;
+        }
+
         const repositoryName = repository.name.toLowerCase();
 
         if (toolRepositories.has(repositoryName)) {

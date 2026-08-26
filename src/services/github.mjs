@@ -76,7 +76,7 @@ export class GitHubRepositoryCache {
             const repositories = await response.json();
             this.items = repositories
                 .filter((repository) => {
-                    return this.#includeRepository(repository);
+                    return !this.exclude.has(repository.name);
                 })
                 .map((repository) => {
                     return this.#presentRepository(repository);
@@ -99,10 +99,6 @@ export class GitHubRepositoryCache {
         const query = 'type=owner&sort=pushed&direction=desc&per_page=100';
 
         return `https://api.github.com/users/${username}/repos?${query}`;
-    }
-
-    #includeRepository(repository) {
-        return !repository.fork && !repository.archived && !this.exclude.has(repository.name);
     }
 
     #presentRepository(repository) {
