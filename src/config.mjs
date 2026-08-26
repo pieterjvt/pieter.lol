@@ -25,10 +25,45 @@ export async function loadConfig() {
         publicDir: path.join(rootDir, 'public'),
         toolCacheDir: path.resolve(process.env.TOOL_CACHE_DIR || path.join(rootDir, 'tool-cache')),
         umami: {
+            websiteId: process.env.UMAMI_WEBSITE_ID || '',
             scriptUrl: process.env.UMAMI_SCRIPT_URL || '',
-            websiteId: process.env.UMAMI_WEBSITE_ID || ''
+            recorderScriptUrl: process.env.UMAMI_RECORDER_SCRIPT_URL || '',
+            dataAttributes: parseUmamiDataAttributes(process.env.UMAMI_DATA_ATTRIBUTES || '')
         }
     };
+}
+
+function parseUmamiDataAttributes(value) {
+    if (!value.trim()) {
+        return {};
+    }
+
+    const attributes = {};
+
+    for (const entry of value.split(',')) {
+        const trimmed = entry.trim();
+
+        if (!trimmed) {
+            continue;
+        }
+
+        const separatorIndex = trimmed.indexOf('=');
+
+        if (separatorIndex === -1) {
+            throw new Error(`Invalid UMAMI_DATA_ATTRIBUTES entry: ${trimmed}. Expected key=value`);
+        }
+
+        const key = trimmed.slice(0, separatorIndex).trim();
+        const attributeValue = trimmed.slice(separatorIndex + 1).trim();
+
+        if (!key) {
+            throw new Error(`Invalid UMAMI_DATA_ATTRIBUTES entry: ${trimmed}. Key cannot be empty`);
+        }
+
+        attributes[key] = attributeValue;
+    }
+
+    return attributes;
 }
 
 function validateTools(tools) {

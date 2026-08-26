@@ -80,14 +80,16 @@ Add Umami values to .env if analytics is wanted.
 
 ## Runtime variables
 
-| Variable           | Default        | Purpose                   |
-| ------------------ | -------------- | ------------------------- |
-| `PORT`             | `3000`         | HTTP port                 |
-| `HOST`             | `0.0.0.0`      | Bind address              |
-| `UMAMI_SCRIPT_URL` | empty          | Umami script URL          |
-| `UMAMI_WEBSITE_ID` | empty          | Umami website ID          |
-| `GITHUB_TOKEN`     | empty          | Optional GitHub API token |
-| `TOOL_CACHE_DIR`   | `./tool-cache` | Mirrored tool directory   |
+| Variable                    | Default        | Purpose                                                                            |
+| --------------------------- | -------------- | ---------------------------------------------------------------------------------- |
+| `PORT`                      | `3000`         | Port the HTTP server listens on                                                    |
+| `HOST`                      | `0.0.0.0`      | Network interface the HTTP server binds to                                         |
+| `UMAMI_WEBSITE_ID`          | empty          | Umami website ID used by the analytics script                                      |
+| `UMAMI_SCRIPT_URL`          | empty          | URL of the Umami analytics script                                                  |
+| `UMAMI_RECORDER_SCRIPT_URL` | empty          | URL of the Umami recorder script (only for replays/heatmaps)                       |
+| `UMAMI_DATA_ATTRIBUTES`     | empty          | Comma-separated `key=value` pairs added as `data-*` attributes to the Umami script |
+| `GITHUB_TOKEN`              | empty          | Optional GitHub API token used for GitHub API requests                             |
+| `TOOL_CACHE_DIR`            | `./tool-cache` | Directory containing the mirrored tool data                                        |
 
 ## License
 

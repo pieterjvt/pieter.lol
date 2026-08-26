@@ -4,7 +4,9 @@ services:
         ports:
             - '3000:3000'
         environment:
-            UMAMI_SCRIPT_URL: ${UMAMI_SCRIPT_URL:-}
             UMAMI_WEBSITE_ID: ${UMAMI_WEBSITE_ID:-}
+            UMAMI_SCRIPT_URL: ${UMAMI_SCRIPT_URL:-}
+            UMAMI_RECORDER_SCRIPT_URL: ${UMAMI_RECORDER_SCRIPT_URL:-}
+            UMAMI_DATA_ATTRIBUTES: ${UMAMI_DATA_ATTRIBUTES:-}
             GITHUB_TOKEN: ${GITHUB_TOKEN:-}
         restart: unless-stopped

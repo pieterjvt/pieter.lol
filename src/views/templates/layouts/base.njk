@@ -28,18 +28,24 @@
 
     <link rel="stylesheet" href="/assets/css/site.css">
 
-    {% if umami.scriptUrl and umami.websiteId %}
-        <script defer src="{{ umami.scriptUrl }}" data-website-id="{{ umami.websiteId }}"></script>
-        <script>
-        document.addEventListener("DOMContentLoaded", () =>
-            document.querySelectorAll("a").forEach((t) => {
-                if (t.host !== window.location.host && !t.getAttribute("data-umami-event")) {
-                    t.setAttribute("data-umami-event", "outbound-link-click");
-                    t.setAttribute("data-umami-event-url", t.href);
-                }
-            })
-        );
-        </script>
+    {% if umami.websiteId %}
+        {% if umami.scriptUrl %}
+            <script defer src="{{ umami.scriptUrl }}" data-website-id="{{ umami.websiteId }}"
+                {% for key, value in umami.dataAttributes %}data-{{ key }}="{{ value }}"{% if not loop.last %} {% endif %}{% endfor %}></script>
+            <script>
+            document.addEventListener("DOMContentLoaded", () =>
+                document.querySelectorAll("a").forEach((t) => {
+                    if (t.host !== window.location.host && !t.getAttribute("data-umami-event")) {
+                        t.setAttribute("data-umami-event", "outbound-link-click");
+                        t.setAttribute("data-umami-event-url", t.href);
+                    }
+                })
+            );
+            </script>
+        {% endif %}
+        {% if umami.recorderScriptUrl %}
+            <script defer src="{{ umami.recorderScriptUrl }}" data-website-id="{{ umami.websiteId }}"></script>
+        {% endif %}
     {% endif %}
 </head>
 <body>
