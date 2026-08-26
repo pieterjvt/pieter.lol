@@ -13,57 +13,63 @@ This Privacy Policy applies to `pieter.lol` and all subdomains of `pieter.lol`, 
 
 ## Data processing
 
-The site is served through Cloudflare. When you visit a page, Cloudflare may process technical information required to deliver, secure, and operate the site. This may include:
+The site is served through Cloudflare. When you visit a page, Cloudflare may process technical information needed to deliver, secure, and operate the site, including:
 
 - Your IP address
 - Browser and device information
-- The requested URL and request metadata
+- Requested URLs and request metadata
 - Referrer information
 - Timestamps
 - Network, routing, and security information
 
 Cloudflare may also set strictly necessary cookies when certain security or traffic-management features are enabled.
 
-## Analytics
+## Analytics and diagnostics
 
-Some pages may use a self-hosted instance of Umami Analytics. Other pages may use no analytics at all.
+Some pages may use a self-hosted instance of Umami Analytics. Other pages may use no analytics.
 
-Where Umami is enabled, it may collect anonymous usage information such as:
+Depending on the page and configuration, Umami may collect:
 
-- Pages visited
-- Referrer URLs
-- Browser and operating system
-- Device type
-- Country
+- Pages visited and referrer URLs
+- Browser, operating system, device type, and country
 - Anonymous session and event information
+- Clicks, mouse movement, scrolling, navigation, and form interactions for session replays
+- Click and scroll activity for heatmaps
+- Performance measurements such as LCP, INP, CLS, FCP, and TTFB
 
-Umami does not use cookies and is designed not to collect directly identifying personal information. Technical request information, including an IP address and user agent, may be processed to derive anonymous session or location information.
+Session replay input fields are masked by default. Additional page content may be masked or excluded depending on the configuration.
 
-The Umami instance is self-hosted. Analytics data is not sent to Umami Cloud solely because Umami is being used.
+Technical request information, including an IP address and user agent, may also be processed to derive session, device, or approximate location information.
+
+Umami does not use analytics cookies and the instance is self-hosted. Data is not sent to Umami Cloud solely because Umami is being used.
 
 ## How data is used
 
-Technical data is processed to operate, secure, and maintain the site. Analytics data, where collected, is used to understand general usage of the site.
+Technical data is used to operate, secure, and maintain the site.
 
-Where the GDPR applies, this processing is based on legitimate interests in operating a secure website and understanding its general usage.
+Analytics, heatmap, replay, and performance data, where collected, are used to understand site usage, diagnose problems, improve performance, and improve the user experience.
+
+Where the GDPR applies, processing is carried out under an applicable legal basis. Legitimate interests may be relied on for operating, securing, and improving the site. Where consent is required by applicable law, the relevant processing should only take place with that consent.
 
 ## Third parties and transfers
 
-Cloudflare processes information as part of providing its network and security services. Cloudflare operates a global network, so information may be processed outside your country of residence in accordance with Cloudflare's applicable data protection safeguards.
+Cloudflare processes information as part of providing its network and security services. Cloudflare operates a global network, so information may be processed outside your country of residence under its applicable data protection safeguards.
 
-Self-hosted Umami analytics data remains under the control of the site operator.
+Self-hosted Umami data remains under the control of the site operator.
 
 ## Retention
 
 Cloudflare applies its own retention periods to information processed through its services.
 
-Self-hosted analytics data may be retained until it is manually deleted or is no longer needed for analytics purposes.
+Umami session replays are normally retained for 30 days.
+
+Other self-hosted analytics, heatmap, and performance data may be retained until manually deleted or no longer needed for these purposes.
 
 ## Your rights
 
 Depending on where you live, you may have rights concerning your personal data, including rights to access, correct, delete, restrict, or object to its processing.
 
-Because Umami analytics are designed to be anonymous, it may not be technically possible to associate an analytics record with a particular visitor.
+Analytics data is not intended to directly identify individual visitors, so it may not always be technically possible to associate a particular analytics record with you.
 
 For privacy-related questions or requests, contact [privacy@pieter.lol](mailto:privacy@pieter.lol).
 
