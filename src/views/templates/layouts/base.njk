@@ -8,15 +8,28 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="stylesheet"
         href="https://fonts.bunny.net/css?family=inter:400,500,600|courier-prime:400,700&display=swap">
+    
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:title" content="{{ page.documentTitle }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:image" content="{{ site.siteUrl }}/assets/img/social-image.png">
+    <meta property="og:url" content="{{ site.siteUrl }}/{{ page.path }}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.documentTitle }}">
+    <meta name="twitter:description" content="{{ page.description }}">
+    <meta name="twitter:image" content="{{ site.siteUrl }}/assets/img/social-image.png">
+
     <link rel="stylesheet" href="/assets/css/site.css">
+
     {% if umami.scriptUrl and umami.websiteId %}
         <script defer src="{{ umami.scriptUrl }}" data-website-id="{{ umami.websiteId }}"></script>
-
         <script>
         document.addEventListener("DOMContentLoaded", () =>
             document.querySelectorAll("a").forEach((t) => {
