@@ -38,6 +38,7 @@ test('SSR pages and mirrored tool route work', async () => {
             await assertHomePage(base);
             await assertSitemap(base);
             await assertToolsPage(base);
+            await assertPrivacyPage(base);
             await assertMirroredTool(base);
             await assertErrorPages(base);
         }
@@ -253,14 +254,21 @@ async function assertSitemap(base) {
 
     assert.deepEqual(locations, [
         'https://example.test/',
-        'https://example.test/tools',
-        'https://example.test/privacy',
-        'https://example.test/tools/demo'
+        'https://example.test/tools/',
+        'https://example.test/privacy/',
+        'https://example.test/tools/demo/'
     ]);
 }
 
 async function assertToolsPage(base) {
-    const response = await fetch(`${base}/tools`);
+    const redirect = await fetch(`${base}/tools`, {
+        redirect: 'manual'
+    });
+
+    assert.equal(redirect.status, 308);
+    assert.equal(redirect.headers.get('location'), '/tools/');
+
+    const response = await fetch(`${base}/tools/`);
     const html = await response.text();
 
     assert.equal(response.status, 200);
@@ -268,6 +276,19 @@ async function assertToolsPage(base) {
     assert.match(html, /https:\/\/example\.test\/<\/a>tools/);
     assert.match(html, /Last updated: 01\/01\/2026/);
     assert.match(html, /Last updated: 02\/02\/2026/);
+}
+
+async function assertPrivacyPage(base) {
+    const redirect = await fetch(`${base}/privacy`, {
+        redirect: 'manual'
+    });
+
+    assert.equal(redirect.status, 308);
+    assert.equal(redirect.headers.get('location'), '/privacy/');
+
+    const response = await fetch(`${base}/privacy/`);
+
+    assert.equal(response.status, 200);
 }
 
 async function assertMirroredTool(base) {

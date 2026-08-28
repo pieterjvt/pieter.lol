@@ -140,9 +140,9 @@ function escapeXml(value) {
 
 export function renderSitemap({ site, githubTools }) {
     const toolUrls = Array.from(githubTools.keys()).map(
-        (key) => `/tools/${encodeURIComponent(key)}`
+        (key) => `/tools/${encodeURIComponent(key)}/`
     );
-    const urls = ['/', '/tools', '/privacy', ...toolUrls];
+    const urls = ['/', '/tools/', '/privacy/', ...toolUrls];
 
     const uniqueUrls = [...new Set(urls)];
 
@@ -277,7 +277,7 @@ function findToolRepository(tool, repositoryIndex) {
 
 function toolUrl(tool) {
     if (tool.kind === 'github') {
-        return `/tools/${encodeURIComponent(tool.slug)}`;
+        return `/tools/${encodeURIComponent(tool.slug)}/`;
     }
 
     return tool.url;

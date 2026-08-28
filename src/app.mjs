@@ -130,8 +130,11 @@ export function createRequestHandler({ config, githubCache }) {
             }
 
             if (pathname === '/tools') {
-                const repositories = await githubCache.get();
+                return redirect(res, `/tools/${url.search}`);
+            }
 
+            if (pathname === '/tools/') {
+                const repositories = await githubCache.get();
                 return sendHtml(
                     res,
                     200,
@@ -143,8 +146,11 @@ export function createRequestHandler({ config, githubCache }) {
             }
 
             if (pathname === '/privacy') {
-                const privacy = await getPrivacy();
+                return redirect(res, `/privacy/${url.search}`);
+            }
 
+            if (pathname === '/privacy/') {
+                const privacy = await getPrivacy();
                 return sendHtml(
                     res,
                     200,
