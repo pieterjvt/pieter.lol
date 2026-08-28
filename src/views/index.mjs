@@ -86,7 +86,7 @@ export function renderTools({ site, umami, tools, repositories }) {
         page: createPage(site, {
             title: 'tools',
             heading: 'tools',
-            path: 'tools',
+            path: 'tools/',
             description: `Useful tools and utilities by ${site.ownerName}.`,
             headerText: 'A collection of useful tools and small projects.'
         }),
@@ -116,7 +116,7 @@ export function renderPrivacy({ site, umami, privacy }) {
         page: createPage(site, {
             title,
             heading,
-            path: 'privacy',
+            path: 'privacy/',
             description: `Privacy policy for ${site.siteName} and its tools.`,
             headerText
         }),
@@ -177,7 +177,7 @@ export function renderError({ site, umami }, status) {
         page: createPage(site, {
             title: `${error.status} ${error.name}`,
             heading: `${error.name} :(`,
-            path: `error/${error.status}`,
+            path: `error/${error.status}/`,
             description: error.description,
             headerText: error.description
         }),
