@@ -110,7 +110,9 @@ export class GitHubRepositoryCache {
             description: repository.description || 'No description provided.',
             url: repository.html_url,
             pushedAt: repository.pushed_at,
-            language: repository.language || 'repository'
+            language: repository.language || 'repository',
+            fork: repository.fork || false,
+            archived: repository.archived || false
         };
     }
 
